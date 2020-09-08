@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Numverify API</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div style="display: block;" id="display2">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Verify Phone Number</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Enter Your PhoneNum</ion-label>
+                <ion-input type="number" [(ngModel)]="phoneNum" id="num" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Select Country</ion-label>
+                <ion-select (ionChange)="countryChange($event)" required>
+                  <ion-select-option value="US">US</ion-select-option>
+                  <ion-select-option value="EG">Egy</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <div class="ion-margin-vertical" style="float: right;">
+                <ion-button fill="clear" color="primary" strong (click)="check()">
+                  <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>Check
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div style="display: none;" id="display">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title style="color: white;">Numbers Checks</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list id="expenses-list" style="color: white;">
+                <!--<p><b style="color: white;">Valid:</b><br> {{ x.valid }} </p>
+                <p><b style="color: white;">Number:</b><br> {{ x.number }} </p>
+                <p><b style="color: white;">Local_format:</b><br> {{ x.local_format }} </p>
+                <p><b style="color: white;">International_format:</b><br>{{ x.international_format }} </p>
+                <p><b style="color: white;">Country_code:</b><br> {{ x.country_code }} </p>
+                <p><b style="color: white;">Country_name:</b><br> {{ x.country_name }} </p>
+                <p><b style="color: white;">Location:</b><br> {{ x.location }} </p>
+                <p><b style="color: white;">Carrier:</b><br> {{ x.carrier }} </p>
+                <p><b style="color: white;">Line_type:</b><br> {{ x.line_type }} </p>-->
+              </ion-list>
+              <div class="ion-margin-vertical" style="float: right;">
+                <ion-button fill="clear" color="primary" strong (click)="checkAgian()">
+                  <ion-icon slot="start" name="reload-circle-outline"></ion-icon>Check Again
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

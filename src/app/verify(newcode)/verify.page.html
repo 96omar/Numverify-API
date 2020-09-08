@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Numverify API</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div style="display: block;" id="display2">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title><b>Verify Phone Number</b></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Enter Your PhoneNum</ion-label>
+                <ion-input type="number" [(ngModel)]="phoneNum" id="num" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Select Country</ion-label>
+                <ion-select (ionChange)="countryChange($event)" required>
+                  <ion-select-option value="US">US</ion-select-option>
+                  <ion-select-option value="EG">Egy</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <div class="ion-margin-vertical" style="float: right;">
+                <ion-button fill="clear" color="primary" strong (click)="check()">
+                  <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>Check
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div style="display: none;" id="display3">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title style="color: white;"><h1><b>Number Check</b></h1></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list *ngFor="let x of phoneList " class="ion-text-left">
+                <p><b style="color: white;">- Valid:</b><br> &nbsp;&nbsp;&nbsp;{{ x.valid }} </p>
+                <p><b style="color: white;">- Number:</b><br> &nbsp;&nbsp;&nbsp;{{ x.number }} </p>
+                <p><b style="color: white;">- Local_format:</b><br> &nbsp;&nbsp;&nbsp;{{ x.local_format }} </p>
+                <p><b style="color: white;">- International_format:</b><br> &nbsp;&nbsp;&nbsp;{{ x.international_format }} </p>
+                <p><b style="color: white;">- Country_code:</b><br> &nbsp;&nbsp;&nbsp;{{ x.country_code }} </p>
+                <p><b style="color: white;">- Country_name:</b><br> &nbsp;&nbsp;&nbsp;{{ x.country_name }} </p>
+                <p><b style="color: white;">- Location:</b><br> &nbsp;&nbsp;&nbsp;{{ x.location }} </p>
+                <p><b style="color: white;">- Carrier:</b><br> &nbsp;&nbsp;&nbsp;{{ x.carrier }} </p>
+                <p><b style="color: white;">- Line_type:</b><br> &nbsp;&nbsp;&nbsp;{{ x.line_type }} </p>
+              </ion-list>
+              <div class="ion-margin-vertical" style="float: inline-start;">
+                <ion-button fill="clear" color="primary" strong (click)="checkAgian()">
+                  <ion-icon slot="start" name="reload-circle-outline"></ion-icon>Check Again
+                </ion-button>
+              
+              
+                <ion-button fill="clear" color="primary" strong (click)="history()">
+                  <ion-icon slot="start" name="server-outline"></ion-icon>History
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div style="display: none;" id="display">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title style="color: white;"><b>Numbers History</b></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list id="expenses-list" class="ion-text-left">
+               
+              </ion-list>
+              <div class="ion-margin-vertical">
+                <ion-button fill="clear" color="primary" strong (click)="checkAgianHistory()">
+                  <ion-icon slot="start" name="reload-circle-outline"></ion-icon>Check Again
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
