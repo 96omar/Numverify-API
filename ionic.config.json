@@ -1,0 +1,7 @@
+{
+  "name": "numverify",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
